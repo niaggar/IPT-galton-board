@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/andres/Documents/IPT-galton-board/models",
-      "program": "/home/andres/Documents/IPT-galton-board/models/build/Debug/outDebug",
+      "cwd": "/home/andres/Documents/IPT-galton-board/cpp-app",
+      "program": "/home/andres/Documents/IPT-galton-board/cpp-app/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

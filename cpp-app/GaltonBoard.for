@@ -108,18 +108,19 @@ C     PROGRAMA PARA INTEGRAR ECUACIONES DIFERENCIALES
 
 !      Colision con los obstaculos
        do l=1,No
-       raux=sqrt((xc(l)-x(i))**2+(yc(l)-y(i))**2)
-       dx=-xc(l)+x(i)
-       dy=-yc(l)+y(i)
-       vxa=vx(i)
-       vya=vy(i)
+              raux = sqrt((xc(l)-x(i))**2+(yc(l)-y(i))**2)
+              dx=-xc(l)+x(i)
+              dy=-yc(l)+y(i)
+              vxa=vx(i)
+              vya=vy(i)
+       
        if(raux.lt.Ro)then
-       vr=-alphaO*(vxa*dx+vya*dy)/raux
-       vt=(-vxa*dy+vya*dx)/raux
-       vx(i)=vr*dx/raux-vt*dy/raux
-       vy(i)=vr*dy/raux+vt*dx/raux
-       x(i)=Ro*dx/raux+xc(l)
-       y(i)=Ro*dy/raux+yc(l)
+              vr = - alphaO * (vxa * dx + vya * dy) / raux
+              vt = (- vxa * dy + vya * dx) / raux
+              vx(i) = vr * dx / raux - vt * dy / raux
+              vy(i) = vr * dy / raux + vt * dx / raux
+              x(i) = Ro * dx / raux + xc(l)
+              y(i) = Ro * dy / raux + yc(l)
        end if 
        continue
        end do 
@@ -129,24 +130,30 @@ C     PROGRAMA PARA INTEGRAR ECUACIONES DIFERENCIALES
        end do 
  
 !      Escribe el archivo de ovito
+       
        if(J/float(10).eq.int(J/float(10)).and.NR.eq.1)then
-       write(8,*) 3*Ns+NPa+No
+       write(8,*) 3 * Ns + NPa + No
        write(8,*) 'aver' 
+
        do i=1,3*NS 
        write(8,*) i,2,xs(i),ys(i),1
        continue
        end do
+       
        do i=1,NPa 
        write(8,*) 3*Ns+i,1,x(i),y(i),1
        continue
        end do
+
        do l=1,No
        write(8,*) 3*Ns+Npa+i,3,xc(l),yc(l),1
        continue 
        end do
+
        end if
        
        Continue
+
        end do !Ciclo tiempo
  
 
